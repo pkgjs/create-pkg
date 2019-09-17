@@ -1,0 +1,24 @@
+{
+  "name": "@pkgjs/create",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Wes Todd <wes@wesleytodd.com>",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha",
+    "release": "standard-version",
+    "prepublish": "npm t",
+    "postpublish": "git push origin && git push origin --tags"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "standard": "^14.3.0",
+    "standard-version": "^6.0.1"
+  },
+  "dependencies": {
+    "inquirer": "^7.0.0",
+    "yargs": "^14.0.0"
+  }
+}
