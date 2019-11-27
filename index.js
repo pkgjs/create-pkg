@@ -32,6 +32,11 @@ module.exports = function (opts = {}, runner) {
       flag: {
         alias: 'S'
       }
+    },
+    advanced: {
+      description: 'Show advanced prompts',
+      type: 'boolean',
+      prompt: false
     }
   }
 
@@ -96,7 +101,7 @@ module.exports = function (opts = {}, runner) {
           type: type,
           message: `${o.message || o.description || key}:`,
           default: _opts[key],
-          when: typeof input[key] === 'undefined'
+          when: typeof input[key] === 'undefined' && !!(o.advanced ? _opts.advanced : true)
         }
 
         // Use provided prompt config
@@ -115,7 +120,7 @@ module.exports = function (opts = {}, runner) {
       return Object.assign({}, _opts, await promptor(prompts))
     }
 
-    const ret = await runner(initOptions)
+    const ret = await runner(initOptions, input)
     return ret
   }
 
