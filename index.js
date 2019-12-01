@@ -71,8 +71,24 @@ module.exports = function (opts = {}, runner) {
       return o
     }, { ...defaults })
 
-    async function initOptions (overrides) {
-      const _opts = Object.assign({}, options, overrides)
+    async function initOptions (defaultOverrides = {}, inputOverrides = {}) {
+      // Override input
+      const _input = Object.assign({}, input, inputOverrides)
+
+      // Merge together overrides
+      await Promise.all(
+        (opts.uses || []).map(async (gen) => {
+          if (typeof gen.initOptions === 'function') {
+            defaultOverrides = Object.assign({}, await gen.initOptions(_input), defaultOverrides)
+          }
+        })
+      )
+      if (typeof opts.initOptions === 'function') {
+        defaultOverrides = Object.assign({}, await opts.initOptions(_input), defaultOverrides)
+      }
+
+      // Merge overrides and options last
+      const _opts = Object.assign({}, options, defaultOverrides)
       if (_opts.prompt === false) {
         return _opts
       }
@@ -101,7 +117,7 @@ module.exports = function (opts = {}, runner) {
           type: type,
           message: `${o.message || o.description || key}:`,
           default: _opts[key],
-          when: typeof input[key] === 'undefined' && !!(o.advanced ? _opts.advanced : true)
+          when: typeof _input[key] === 'undefined' && !!(o.advanced ? _opts.advanced : true)
         }
 
         // Use provided prompt config
@@ -125,6 +141,7 @@ module.exports = function (opts = {}, runner) {
   }
 
   run.options = allOptions
+  run.initOptions = opts.initOptions
 
   run.cli = (argv) => {
     // Cli setup

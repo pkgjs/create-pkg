@@ -67,10 +67,13 @@ suite(pkg.name, () => {
     const genOne = create({
       options: {
         one: { type: 'number' }
+      },
+      initOptions: (input) => {
+        return { one: 'one' }
       }
     }, async (initOpts) => {
       const o = await initOpts()
-      assert.strictEqual(o.one, 1)
+      assert.strictEqual(o.one, 'one')
       assert.strictEqual(o.directory, TMP_DIR)
     })
 
@@ -81,7 +84,7 @@ suite(pkg.name, () => {
       }
     }, async (initOpts) => {
       const o = await initOpts()
-      assert.strictEqual(o.one, 1)
+      assert.strictEqual(o.one, 'one')
       assert.strictEqual(o.two, 2)
       assert.strictEqual(o.directory, TMP_DIR)
       assert.strictEqual(o.prompt, false)
