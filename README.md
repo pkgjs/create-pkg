@@ -2,7 +2,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/create-pkg.svg)](https://npmjs.org/package/create-pkg)
 [![NPM Downloads](https://img.shields.io/npm/dm/create-pkg.svg)](https://npmjs.org/package/create-pkg)
-[![test](https://github.com/pkgjs/create/workflows/Test/badge.svg)](https://github.com/pkgjs/create/actions?query=workflow%3ATest)
+[![test](https://github.com/pkgjs/create/workflows/Node.js%20CI/badge.svg)](https://github.com/pkgjs/create/actions?query=workflow%3A%22Node.js+CI%22)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
 
 ## Usage
