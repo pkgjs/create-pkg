@@ -33,7 +33,8 @@ suite(pkg.name, () => {
       cwd: fix.TMP,
       push: false,
       silent: true,
-      githubRepo: '__tmp'
+      githubRepo: '__tmp',
+      author: 'Unit test'
     }, barePrompt)
   })
 })
