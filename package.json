@@ -36,6 +36,7 @@
     "create-git": "^1.0.0-2",
     "create-package-json": "^1.0.0-2",
     "loggerr": "^3.0.0-3",
+    "object.fromentries": "^2.0.3",
     "opta": "0.0.6",
     "semver": "^7.3.2"
   },
