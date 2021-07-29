@@ -1,5 +1,5 @@
 {
-  "name": "@pkgjs/create-pkg",
+  "name": "create-pkg",
   "version": "0.0.0",
   "description": "Scaffold a package",
   "author": "Wes Todd <wes@wesleytodd.com>",
