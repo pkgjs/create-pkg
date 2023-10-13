@@ -3,6 +3,7 @@ const { suite, test, before } = require('mocha')
 const pkg = require('../package.json')
 const fixtures = require('fs-test-fixtures')
 const createPackage = require('..')
+const fromEntries = require('object.fromentries')
 
 const barePrompt = {
   promptor: () => async (prompts) => {
@@ -17,7 +18,8 @@ const barePrompt = {
       }
       return [p.name, ret]
     }))
-    return Object.fromEntries(out)
+
+    return fromEntries(out)
   }
 }
 
@@ -33,7 +35,8 @@ suite(pkg.name, () => {
       cwd: fix.TMP,
       push: false,
       silent: true,
-      githubRepo: '__tmp'
+      githubRepo: '__tmp',
+      author: 'Unit test'
     }, barePrompt)
   })
 })

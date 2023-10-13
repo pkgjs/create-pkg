@@ -23,7 +23,10 @@
     "create-package": "bin/create-package"
   },
   "scripts": {
-    "test": "standard && mocha --timeout=60000",
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "test": "npm run tests-only",
+    "tests-only": "mocha --timeout=60000",
     "test:debug": "mocha --inspect --inspect-brk --timeout=0",
     "release": "npm t && standard-version && npm publish",
     "postpublish": "git push origin && git push origin --tags"
@@ -33,6 +36,7 @@
     "create-git": "^1.0.0-2",
     "create-package-json": "^1.0.0-2",
     "loggerr": "^3.0.0-3",
+    "object.fromentries": "^2.0.3",
     "opta": "0.0.6",
     "semver": "^7.3.2"
   },
