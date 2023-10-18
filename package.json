@@ -22,6 +22,9 @@
   "bin": {
     "create-package": "bin/create-package"
   },
+  "engines": {
+    "node": "^18 || ^20 || ^21"
+  },
   "scripts": {
     "test": "standard && mocha --timeout=60000",
     "test:debug": "mocha --inspect --inspect-brk --timeout=0",
