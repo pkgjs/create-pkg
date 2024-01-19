@@ -1,0 +1,47 @@
+{
+  "name": "create-pkg",
+  "version": "0.0.0",
+  "description": "Scaffold a package",
+  "author": "Wes Todd <wes@wesleytodd.com>",
+  "keywords": [
+    "scaffold",
+    "package",
+    "git",
+    "module",
+    "package.json",
+    "readme",
+    "mocha",
+    "standard"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pkgjs/create.git"
+  },
+  "bin": {
+    "create-package": "bin/create-package"
+  },
+  "scripts": {
+    "test": "standard && mocha --timeout=60000",
+    "test:debug": "mocha --inspect --inspect-brk --timeout=0",
+    "release": "npm t && standard-version && npm publish",
+    "postpublish": "git push origin && git push origin --tags"
+  },
+  "dependencies": {
+    "cptmpl": "0.0.5",
+    "create-git": "^1.0.0-2",
+    "create-package-json": "^1.0.0-2",
+    "loggerr": "^3.0.0-3",
+    "opta": "0.0.6",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "fs-extra": "^8.0.1",
+    "fs-test-fixtures": "^0.1.3",
+    "mocha": "^6.2.2",
+    "standard": "^14.3.1",
+    "standard-version": "^9.0.0"
+  },
+  "support": true
+}

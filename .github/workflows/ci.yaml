@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches: 
+      - '*'
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        node-version:
+          - '18'
+          - '20'
+          - '21'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          cache-dependency-path: 'package-lock.json'
+      - name: Install Deps
+        run: npm ci
+      - name: Run Tests
+        run: npm test
+    
