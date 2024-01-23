@@ -1,15 +1,14 @@
 {
-  "name": "create-pkg-monorepo",
+  "name": "@pkgjs/create",
   "version": "1.0.0",
-  "description": "The mono-repo for all create-pkg packages",
+  "description": "The monorepo for all create-pkg packages",
   "scripts": {
     "test": "npm test -ws --if-present"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pkgjs/create-pkg.git"
+    "url": "git@github.com:pkgjs/create.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/pkgjs/create-pkg/issues"

@@ -1,5 +1,5 @@
 {
-  "name": "create-pkg",
+  "name": "@pkgjs/create-pkg",
   "version": "0.0.0",
   "description": "Scaffold a package",
   "author": "Wes Todd <wes@wesleytodd.com>",
@@ -15,10 +15,6 @@
   ],
   "license": "ISC",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:pkgjs/create.git"
-  },
   "bin": {
     "create-package": "bin/create-package"
   },
